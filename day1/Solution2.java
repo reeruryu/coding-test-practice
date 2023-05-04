@@ -1,12 +1,12 @@
 import java.util.*;
 
-class Solution {
+class Solution2 {
     static HashSet<Integer> set = new HashSet<>();
     static boolean[] checked = new boolean[7];
     
     public int solution(String numbers) {
         int answer = 0;
-        for(int i = 0; i < numbers.length(); i++){
+        for(int i = 0; i < numbers.length(); i++) {
             dfs(numbers,"",i + 1);
         }
         
