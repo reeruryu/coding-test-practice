@@ -1,4 +1,5 @@
-# programmers-practice
+# coding-test-practice
+## programmers-practice
 프로그래머스 코딩테스트 문제 연습
 
 ### Day 1 - 완전 탐색
