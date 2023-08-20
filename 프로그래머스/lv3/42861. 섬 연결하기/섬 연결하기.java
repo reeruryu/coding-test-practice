@@ -28,6 +28,6 @@ class Solution {
     
     public static int findUnion(int u) {
 		if (island[u] == u) return u;
-		return findUnion(island[u]);
+		return island[u] = findUnion(island[u]);
 	}
 }
