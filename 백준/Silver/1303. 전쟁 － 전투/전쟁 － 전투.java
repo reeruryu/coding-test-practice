@@ -13,8 +13,8 @@ public class Main {
 
         N = Integer.parseInt(st.nextToken()); // 가로 (열)
         M = Integer.parseInt(st.nextToken()); // 세로 (행)
-        war = new char[M + 1][N + 1];
-        visited = new boolean[M + 1][N + 1];
+        war = new char[M][N];
+        visited = new boolean[M][N];
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             String tmp = st.nextToken();
@@ -22,22 +22,17 @@ public class Main {
                 war[i][j] = tmp.charAt(j);
             }
         }
-        
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                if (!visited[i][j] && war[i][j] == 'W') {
-                    int cnt = bfs(i, j, 'W');
-                    cntW += (cnt * cnt);
-                }
-            }
-        }
 
         for (int i = 0; i < M; i++) {
             for (int j = 0; j < N; j++) {
-                if (!visited[i][j] && war[i][j] == 'B') {
-                    int cnt = bfs(i, j, 'B');
-                    cntB += (cnt * cnt);
+                if (!visited[i][j]) {
+                    if (war[i][j] == 'W') {
+                        cntW += bfs(i, j, 'W');
+                    } else {
+                        cntB += bfs(i, j, 'B');
+                    }
                 }
+                
             }
         }
 
@@ -46,11 +41,11 @@ public class Main {
     }
 
     public static int bfs(int x, int y, int color) {
-        int cnt = 0;
+        int cnt = 1;
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{x, y});
         visited[x][y] = true;
-        cnt++;
+
         while (!queue.isEmpty()) {
             int[] cur = queue.poll();
             for (int[] d : dirs) {
@@ -68,6 +63,6 @@ public class Main {
             }
         }
 
-        return cnt;
+        return cnt * cnt;
     }
 }
