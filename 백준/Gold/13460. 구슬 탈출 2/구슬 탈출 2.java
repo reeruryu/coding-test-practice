@@ -5,6 +5,18 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+class Marble {
+    int rx, ry, bx, by, cnt;
+
+    public Marble(int rx, int ry, int bx, int by, int cnt) {
+        this.rx = rx;
+        this.ry = ry;
+        this.bx = bx;
+        this.by = by;
+        this.cnt = cnt;
+    }
+}
+
 public class Main {
 	static int N, M;
 	static char[][] map;
@@ -140,18 +152,3 @@ public class Main {
 
 }
 
-class Marble {
-	int rx;
-	int ry;
-	int bx;
-	int by;
-	int cnt;
-	
-	Marble(int rx, int ry, int bx, int by, int cnt) {
-		this.rx = rx;
-		this.ry = ry;
-		this.bx = bx;
-		this.by = by;
-		this.cnt = cnt;
-	}
-}
